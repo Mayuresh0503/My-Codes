@@ -1,0 +1,154 @@
+#include"iostream.h"
+#include"conio.h"
+#include"math.h"
+#include"process.h"
+void linear_one()
+{
+ double a,b,c,x;
+ clrscr();
+ cout<<"THE LINEAR QUATION OF ONE UNKNOWN IS IN THE FORM OF:"<<endl;
+ cout<<"ax+b=c"<<endl;
+ cout<<"a= "<<flush;   cin>>a;
+ cout<<"b= "<<flush;   cin>>b;
+ cout<<"c= "<<flush;   cin>>c;
+ cout<<"THE EQUATION IS"<<endl;
+ cout<<a<<"x+"<<b<<"="<<c<<endl;
+ cout<<"THE SOLUTION OF YOUR EQUATION IS: "<<endl;
+ x=(c-b)/a;
+ cout<<"x= "<<x<<endl;
+ getch();
+}
+//two unknown
+void linear_two()
+{
+ double a,b,c,p,q,r,res_x,res_y;
+ clrscr();
+ cout<<"ENTER THE VALUES IN THE FORM OF:"<<endl;
+ cout<<"ax+by=c"<<endl;
+ cout<<"px+qy=r"<<endl;
+ cout<<"a: "<<flush; cin>>a;
+ cout<<"b: "<<flush; cin>>b;
+ cout<<"c: "<<flush; cin>>c;
+ cout<<"p: "<<flush; cin>>p;
+ cout<<"q: "<<flush; cin>>q;
+ cout<<"r: "<<flush; cin>>r;
+ cout<<"YOUR SYSTEM OF EQUATIONS ARE FOLLOWING: "<<endl;
+ cout<<a<<"x+"<<b<<"y="<<c<<endl;
+ cout<<p<<"x+"<<q<<"y="<<r<<endl;
+ if((a*p)-(b*q)==0)
+ {
+   cout<<"THE SYSTEM HAS NO SOLUTION!!!"<<endl;
+ }
+ else
+ {
+  res_x=((c*q)-(b*r))/((a*q)-(b*p));
+  res_y=((a*r)-(c*q))/((a*q)-(b*p));
+  cout<<"x= "<<res_x<<endl;
+  cout<<"y= "<<res_y<<endl;
+ }
+  getch();
+}
+//three unknowns
+void linear_three()
+{
+  clrscr();
+  double a,b,c,d,l,m,n,k,p,D,q,r,s,x,y,z;
+  cout<<"PROGRAM TO SOLVE THREE VARIABLE LINEAR SIMULTANEOUS EQUATION";
+  cout<<"THE EQUATIONS ARE OF FORM:"<<endl<<"ax+by+cz=d "<<endl<<"lx+my+nz=k"<<endl<<"px+qy+rz=s"<<endl;
+  cout<<"ENTER COEFFICIENT IN THE ORDER: "<<endl;
+  cout<<"a: "; cin>>a;
+  cout<<"b: "; cin>>b;
+  cout<<"c: "; cin>>c;
+  cout<<"d: "; cin>>d;
+  cout<<"l: "; cin>>l;
+  cout<<"m: "; cin>>m;
+  cout<<"n: "; cin>>n;
+  cout<<"k: "; cin>>k;
+  cout<<"p: "; cin>>p;
+  cout<<"q: "; cin>>q;
+  cout<<"r: "; cin>>r;
+  cout<<"s: "; cin>>s;
+  cout<<"THE EQUATIONS YOU HAVE INPUTED ARE: "<<endl;
+  cout<<a<<"x+"<<b<<"y+"<<c<<"z+"<<"="<<d<<endl;
+  cout<<l<<"x+"<<m<<"y+"<<n<<"z+"<<"="<<k<<endl;
+  cout<<p<<"x+"<<q<<"y+"<<r<<"z+"<<"="<<s<<endl;
+  D=(a*m*r+b*p*n+c*l*q)-(a*n*q*+b*l*r+c*m*p);
+  x=((b*r*k+c*m*s+d*n*q)-(b*n*s+c*q*k+d*m*r))/D;
+  y=((a*n*s+c*p*k+d*l*r)-(a*r*k*+c*l*s+d*n*p))/D;
+  z=((a*q*k+b*l*s*+d*m*p)-(a*m*s+b*p*k+d*l*q))/D;
+  cout<<"THE SOLUTIONS TO THE ABOVE THREE EQUATIONS ARE:"<<endl;
+  cout<<"x= "<<x<<endl;
+  cout<<"y= "<<y<<endl;
+  cout<<"z= "<<z<<endl;
+  getch();
+}
+//quadratic
+void quadratic()
+{
+  double root1,root2,a,b,c,d,imaginarypart,realpart;//declaration of double type of intiger
+  clrscr();
+  cout<<"Quadratic Equation is ax^2+bx+c=0"<<endl;
+  cout<<"Enter values of"<<endl;
+  cout<<"a: "<<flush;
+  cin>>a;
+  cout<<"b: "<<flush;
+  cin>>b;
+  cout<<"c: "<<flush;
+  cin>>c;
+  d=(b*b)-(4*a*c);
+  if(d>0)
+  {
+   cout<<"Two Real and Distinct Roots"<<endl;
+   root1=(-b+sqrt(d))/(2*a);
+   root2=(-b-sqrt(d))/(2*a);
+   cout<<"THE Roots Are "<<endl;
+   cout<<root1<<endl;
+   cout<<"and"<<endl;
+   cout<<root2<<endl;
+  }
+  else
+  {
+   cout<<"Roots are complex and imaginary"<<endl;
+   realpart=-b/(2*a);
+   imaginarypart=sqrt(-d)/(2*a);
+   cout<<"Roots are"<<realpart<<"+"<<imaginarypart<<"i"<<endl<<"and"<<realpart<<"-"<<imaginarypart<<"i"<<endl;
+  }
+  getch();
+}
+void main()
+{
+int choice;
+clrscr();
+do
+{
+cout<<"________________Equation Solver______________\n\n\n"<<endl;
+cout<<"MENU-\n"<<endl;
+cout<<"1. Linear Equation with one unknown"<<endl;
+cout<<"2. Linear Equation with two unknowns"<<endl;
+cout<<"3. Linear Equation with three unknowns"<<endl;
+cout<<"4. Quadratic Equation"<<endl;
+cout<<"5. Exit"<<endl;
+cout<<"Enter Your Choice- "<<endl;
+cin>>choice;
+switch(choice)
+{
+case 1:
+linear_one();
+break;
+case 2:
+linear_two();
+break;
+case 3:
+linear_three();
+break;
+case 4:
+quadratic();
+break;
+case 5:
+exit(0);
+}
+}
+while(choice);
+getch();
+}
+
